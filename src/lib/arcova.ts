@@ -4,15 +4,15 @@ import {
   Target, Telescope, WalletCards, Zap,
 } from "lucide-react";
 
-export const ARGUS_URL = import.meta.env.VITE_ARGUS_URL || "https://argus.world";
-export const X_URL = import.meta.env.VITE_X_URL || "https://x.com/";
+export const ARGUS_URL = import.meta.env['VITE_ARGUS_URL'] || "https://argus.world";
+export const X_URL = import.meta.env['VITE_X_URL'] || "https://x.com/";
 export const arcConfig = {
   name: "Arc Mainnet",
   settlement: "USDC",
   nativeGas: "USDC",
-  rpcUrl: import.meta.env.VITE_ARC_RPC_URL || "",
-  chainId: import.meta.env.VITE_ARC_CHAIN_ID || "",
-  explorerUrl: import.meta.env.VITE_ARC_EXPLORER_URL || "",
+  rpcUrl: import.meta.env['VITE_ARC_RPC_URL'] || "",
+  chainId: import.meta.env['VITE_ARC_CHAIN_ID'] || "",
+  explorerUrl: import.meta.env['VITE_ARC_EXPLORER_URL'] || "",
 };
 
 export const navItems = [
