@@ -10,33 +10,399 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as ActivityRouteImport } from './routes/activity'
+import { Route as AgentRouteImport } from './routes/agent'
+import { Route as AuthRouteImport } from './routes/auth'
+import { Route as CompareRouteImport } from './routes/compare'
+import { Route as DocsRouteImport } from './routes/docs'
+import { Route as FaqRouteImport } from './routes/faq'
+import { Route as IntelligenceRouteImport } from './routes/intelligence'
+import { Route as MarketsRouteImport } from './routes/markets'
+import { Route as PortfolioRouteImport } from './routes/portfolio'
+import { Route as ReportsRouteImport } from './routes/reports'
+import { Route as ResetPasswordRouteImport } from './routes/reset-password'
+import { Route as RoadmapRouteImport } from './routes/roadmap'
+import { Route as ScannerRouteImport } from './routes/scanner'
+import { Route as TerminalRouteImport } from './routes/terminal'
+import { Route as TokenRouteImport } from './routes/token'
+import { Route as WatchlistRouteImport } from './routes/watchlist'
+import { Route as AgentIndexRouteImport } from './routes/agent.index'
+import { Route as AgentThreadIdRouteImport } from './routes/agent.$threadId'
+import { Route as AgentPerformanceRouteImport } from './routes/agent.performance'
+import { Route as AgentSettingsRouteImport } from './routes/agent.settings'
+import { Route as DocsIndexRouteImport } from './routes/docs.index'
+import { Route as DocsAgentRouteImport } from './routes/docs.agent'
+import { Route as DocsArchitectureRouteImport } from './routes/docs.architecture'
+import { Route as DocsExecutionRouteImport } from './routes/docs.execution'
+import { Route as DocsRiskRouteImport } from './routes/docs.risk'
+import { Route as DocsTokenizedMarketsRouteImport } from './routes/docs.tokenized-markets'
+import { Route as MarketsAssetRouteImport } from './routes/markets.$asset'
+import { Route as ApiPublicAgentRouteImport } from './routes/api/public/agent'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ActivityRoute = ActivityRouteImport.update({
+  id: '/activity',
+  path: '/activity',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AgentRoute = AgentRouteImport.update({
+  id: '/agent',
+  path: '/agent',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthRoute = AuthRouteImport.update({
+  id: '/auth',
+  path: '/auth',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CompareRoute = CompareRouteImport.update({
+  id: '/compare',
+  path: '/compare',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DocsRoute = DocsRouteImport.update({
+  id: '/docs',
+  path: '/docs',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FaqRoute = FaqRouteImport.update({
+  id: '/faq',
+  path: '/faq',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IntelligenceRoute = IntelligenceRouteImport.update({
+  id: '/intelligence',
+  path: '/intelligence',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MarketsRoute = MarketsRouteImport.update({
+  id: '/markets',
+  path: '/markets',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PortfolioRoute = PortfolioRouteImport.update({
+  id: '/portfolio',
+  path: '/portfolio',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReportsRoute = ReportsRouteImport.update({
+  id: '/reports',
+  path: '/reports',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ResetPasswordRoute = ResetPasswordRouteImport.update({
+  id: '/reset-password',
+  path: '/reset-password',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RoadmapRoute = RoadmapRouteImport.update({
+  id: '/roadmap',
+  path: '/roadmap',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ScannerRoute = ScannerRouteImport.update({
+  id: '/scanner',
+  path: '/scanner',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TerminalRoute = TerminalRouteImport.update({
+  id: '/terminal',
+  path: '/terminal',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TokenRoute = TokenRouteImport.update({
+  id: '/token',
+  path: '/token',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WatchlistRoute = WatchlistRouteImport.update({
+  id: '/watchlist',
+  path: '/watchlist',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AgentIndexRoute = AgentIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => AgentRoute,
+} as any)
+const AgentThreadIdRoute = AgentThreadIdRouteImport.update({
+  id: '/$threadId',
+  path: '/$threadId',
+  getParentRoute: () => AgentRoute,
+} as any)
+const AgentPerformanceRoute = AgentPerformanceRouteImport.update({
+  id: '/performance',
+  path: '/performance',
+  getParentRoute: () => AgentRoute,
+} as any)
+const AgentSettingsRoute = AgentSettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => AgentRoute,
+} as any)
+const DocsIndexRoute = DocsIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => DocsRoute,
+} as any)
+const DocsAgentRoute = DocsAgentRouteImport.update({
+  id: '/agent',
+  path: '/agent',
+  getParentRoute: () => DocsRoute,
+} as any)
+const DocsArchitectureRoute = DocsArchitectureRouteImport.update({
+  id: '/architecture',
+  path: '/architecture',
+  getParentRoute: () => DocsRoute,
+} as any)
+const DocsExecutionRoute = DocsExecutionRouteImport.update({
+  id: '/execution',
+  path: '/execution',
+  getParentRoute: () => DocsRoute,
+} as any)
+const DocsRiskRoute = DocsRiskRouteImport.update({
+  id: '/risk',
+  path: '/risk',
+  getParentRoute: () => DocsRoute,
+} as any)
+const DocsTokenizedMarketsRoute = DocsTokenizedMarketsRouteImport.update({
+  id: '/tokenized-markets',
+  path: '/tokenized-markets',
+  getParentRoute: () => DocsRoute,
+} as any)
+const MarketsAssetRoute = MarketsAssetRouteImport.update({
+  id: '/$asset',
+  path: '/$asset',
+  getParentRoute: () => MarketsRoute,
+} as any)
+const ApiPublicAgentRoute = ApiPublicAgentRouteImport.update({
+  id: '/api/public/agent',
+  path: '/api/public/agent',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/activity': typeof ActivityRoute
+  '/agent': typeof AgentRouteWithChildren
+  '/auth': typeof AuthRoute
+  '/compare': typeof CompareRoute
+  '/docs': typeof DocsRouteWithChildren
+  '/faq': typeof FaqRoute
+  '/intelligence': typeof IntelligenceRoute
+  '/markets': typeof MarketsRouteWithChildren
+  '/portfolio': typeof PortfolioRoute
+  '/reports': typeof ReportsRoute
+  '/reset-password': typeof ResetPasswordRoute
+  '/roadmap': typeof RoadmapRoute
+  '/scanner': typeof ScannerRoute
+  '/terminal': typeof TerminalRoute
+  '/token': typeof TokenRoute
+  '/watchlist': typeof WatchlistRoute
+  '/agent/$threadId': typeof AgentThreadIdRoute
+  '/agent/performance': typeof AgentPerformanceRoute
+  '/agent/settings': typeof AgentSettingsRoute
+  '/docs/agent': typeof DocsAgentRoute
+  '/docs/architecture': typeof DocsArchitectureRoute
+  '/docs/execution': typeof DocsExecutionRoute
+  '/docs/risk': typeof DocsRiskRoute
+  '/docs/tokenized-markets': typeof DocsTokenizedMarketsRoute
+  '/markets/$asset': typeof MarketsAssetRoute
+  '/agent/': typeof AgentIndexRoute
+  '/docs/': typeof DocsIndexRoute
+  '/api/public/agent': typeof ApiPublicAgentRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/activity': typeof ActivityRoute
+  '/auth': typeof AuthRoute
+  '/compare': typeof CompareRoute
+  '/faq': typeof FaqRoute
+  '/intelligence': typeof IntelligenceRoute
+  '/markets': typeof MarketsRouteWithChildren
+  '/portfolio': typeof PortfolioRoute
+  '/reports': typeof ReportsRoute
+  '/reset-password': typeof ResetPasswordRoute
+  '/roadmap': typeof RoadmapRoute
+  '/scanner': typeof ScannerRoute
+  '/terminal': typeof TerminalRoute
+  '/token': typeof TokenRoute
+  '/watchlist': typeof WatchlistRoute
+  '/agent/$threadId': typeof AgentThreadIdRoute
+  '/agent/performance': typeof AgentPerformanceRoute
+  '/agent/settings': typeof AgentSettingsRoute
+  '/docs/agent': typeof DocsAgentRoute
+  '/docs/architecture': typeof DocsArchitectureRoute
+  '/docs/execution': typeof DocsExecutionRoute
+  '/docs/risk': typeof DocsRiskRoute
+  '/docs/tokenized-markets': typeof DocsTokenizedMarketsRoute
+  '/markets/$asset': typeof MarketsAssetRoute
+  '/agent': typeof AgentIndexRoute
+  '/docs': typeof DocsIndexRoute
+  '/api/public/agent': typeof ApiPublicAgentRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/activity': typeof ActivityRoute
+  '/agent': typeof AgentRouteWithChildren
+  '/auth': typeof AuthRoute
+  '/compare': typeof CompareRoute
+  '/docs': typeof DocsRouteWithChildren
+  '/faq': typeof FaqRoute
+  '/intelligence': typeof IntelligenceRoute
+  '/markets': typeof MarketsRouteWithChildren
+  '/portfolio': typeof PortfolioRoute
+  '/reports': typeof ReportsRoute
+  '/reset-password': typeof ResetPasswordRoute
+  '/roadmap': typeof RoadmapRoute
+  '/scanner': typeof ScannerRoute
+  '/terminal': typeof TerminalRoute
+  '/token': typeof TokenRoute
+  '/watchlist': typeof WatchlistRoute
+  '/agent/$threadId': typeof AgentThreadIdRoute
+  '/agent/performance': typeof AgentPerformanceRoute
+  '/agent/settings': typeof AgentSettingsRoute
+  '/docs/agent': typeof DocsAgentRoute
+  '/docs/architecture': typeof DocsArchitectureRoute
+  '/docs/execution': typeof DocsExecutionRoute
+  '/docs/risk': typeof DocsRiskRoute
+  '/docs/tokenized-markets': typeof DocsTokenizedMarketsRoute
+  '/markets/$asset': typeof MarketsAssetRoute
+  '/agent/': typeof AgentIndexRoute
+  '/docs/': typeof DocsIndexRoute
+  '/api/public/agent': typeof ApiPublicAgentRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/activity'
+    | '/agent'
+    | '/auth'
+    | '/compare'
+    | '/docs'
+    | '/faq'
+    | '/intelligence'
+    | '/markets'
+    | '/portfolio'
+    | '/reports'
+    | '/reset-password'
+    | '/roadmap'
+    | '/scanner'
+    | '/terminal'
+    | '/token'
+    | '/watchlist'
+    | '/agent/$threadId'
+    | '/agent/performance'
+    | '/agent/settings'
+    | '/docs/agent'
+    | '/docs/architecture'
+    | '/docs/execution'
+    | '/docs/risk'
+    | '/docs/tokenized-markets'
+    | '/markets/$asset'
+    | '/agent/'
+    | '/docs/'
+    | '/api/public/agent'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/about'
+    | '/activity'
+    | '/auth'
+    | '/compare'
+    | '/faq'
+    | '/intelligence'
+    | '/markets'
+    | '/portfolio'
+    | '/reports'
+    | '/reset-password'
+    | '/roadmap'
+    | '/scanner'
+    | '/terminal'
+    | '/token'
+    | '/watchlist'
+    | '/agent/$threadId'
+    | '/agent/performance'
+    | '/agent/settings'
+    | '/docs/agent'
+    | '/docs/architecture'
+    | '/docs/execution'
+    | '/docs/risk'
+    | '/docs/tokenized-markets'
+    | '/markets/$asset'
+    | '/agent'
+    | '/docs'
+    | '/api/public/agent'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/activity'
+    | '/agent'
+    | '/auth'
+    | '/compare'
+    | '/docs'
+    | '/faq'
+    | '/intelligence'
+    | '/markets'
+    | '/portfolio'
+    | '/reports'
+    | '/reset-password'
+    | '/roadmap'
+    | '/scanner'
+    | '/terminal'
+    | '/token'
+    | '/watchlist'
+    | '/agent/$threadId'
+    | '/agent/performance'
+    | '/agent/settings'
+    | '/docs/agent'
+    | '/docs/architecture'
+    | '/docs/execution'
+    | '/docs/risk'
+    | '/docs/tokenized-markets'
+    | '/markets/$asset'
+    | '/agent/'
+    | '/docs/'
+    | '/api/public/agent'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  ActivityRoute: typeof ActivityRoute
+  AgentRoute: typeof AgentRouteWithChildren
+  AuthRoute: typeof AuthRoute
+  CompareRoute: typeof CompareRoute
+  DocsRoute: typeof DocsRouteWithChildren
+  FaqRoute: typeof FaqRoute
+  IntelligenceRoute: typeof IntelligenceRoute
+  MarketsRoute: typeof MarketsRouteWithChildren
+  PortfolioRoute: typeof PortfolioRoute
+  ReportsRoute: typeof ReportsRoute
+  ResetPasswordRoute: typeof ResetPasswordRoute
+  RoadmapRoute: typeof RoadmapRoute
+  ScannerRoute: typeof ScannerRoute
+  TerminalRoute: typeof TerminalRoute
+  TokenRoute: typeof TokenRoute
+  WatchlistRoute: typeof WatchlistRoute
+  ApiPublicAgentRoute: typeof ApiPublicAgentRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +414,279 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/activity': {
+      id: '/activity'
+      path: '/activity'
+      fullPath: '/activity'
+      preLoaderRoute: typeof ActivityRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/agent': {
+      id: '/agent'
+      path: '/agent'
+      fullPath: '/agent'
+      preLoaderRoute: typeof AgentRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/auth': {
+      id: '/auth'
+      path: '/auth'
+      fullPath: '/auth'
+      preLoaderRoute: typeof AuthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/compare': {
+      id: '/compare'
+      path: '/compare'
+      fullPath: '/compare'
+      preLoaderRoute: typeof CompareRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/docs': {
+      id: '/docs'
+      path: '/docs'
+      fullPath: '/docs'
+      preLoaderRoute: typeof DocsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/faq': {
+      id: '/faq'
+      path: '/faq'
+      fullPath: '/faq'
+      preLoaderRoute: typeof FaqRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/intelligence': {
+      id: '/intelligence'
+      path: '/intelligence'
+      fullPath: '/intelligence'
+      preLoaderRoute: typeof IntelligenceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/markets': {
+      id: '/markets'
+      path: '/markets'
+      fullPath: '/markets'
+      preLoaderRoute: typeof MarketsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/portfolio': {
+      id: '/portfolio'
+      path: '/portfolio'
+      fullPath: '/portfolio'
+      preLoaderRoute: typeof PortfolioRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reports': {
+      id: '/reports'
+      path: '/reports'
+      fullPath: '/reports'
+      preLoaderRoute: typeof ReportsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reset-password': {
+      id: '/reset-password'
+      path: '/reset-password'
+      fullPath: '/reset-password'
+      preLoaderRoute: typeof ResetPasswordRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/roadmap': {
+      id: '/roadmap'
+      path: '/roadmap'
+      fullPath: '/roadmap'
+      preLoaderRoute: typeof RoadmapRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/scanner': {
+      id: '/scanner'
+      path: '/scanner'
+      fullPath: '/scanner'
+      preLoaderRoute: typeof ScannerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/terminal': {
+      id: '/terminal'
+      path: '/terminal'
+      fullPath: '/terminal'
+      preLoaderRoute: typeof TerminalRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/token': {
+      id: '/token'
+      path: '/token'
+      fullPath: '/token'
+      preLoaderRoute: typeof TokenRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/watchlist': {
+      id: '/watchlist'
+      path: '/watchlist'
+      fullPath: '/watchlist'
+      preLoaderRoute: typeof WatchlistRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/agent/': {
+      id: '/agent/'
+      path: '/'
+      fullPath: '/agent/'
+      preLoaderRoute: typeof AgentIndexRouteImport
+      parentRoute: typeof AgentRoute
+    }
+    '/agent/$threadId': {
+      id: '/agent/$threadId'
+      path: '/$threadId'
+      fullPath: '/agent/$threadId'
+      preLoaderRoute: typeof AgentThreadIdRouteImport
+      parentRoute: typeof AgentRoute
+    }
+    '/agent/performance': {
+      id: '/agent/performance'
+      path: '/performance'
+      fullPath: '/agent/performance'
+      preLoaderRoute: typeof AgentPerformanceRouteImport
+      parentRoute: typeof AgentRoute
+    }
+    '/agent/settings': {
+      id: '/agent/settings'
+      path: '/settings'
+      fullPath: '/agent/settings'
+      preLoaderRoute: typeof AgentSettingsRouteImport
+      parentRoute: typeof AgentRoute
+    }
+    '/docs/': {
+      id: '/docs/'
+      path: '/'
+      fullPath: '/docs/'
+      preLoaderRoute: typeof DocsIndexRouteImport
+      parentRoute: typeof DocsRoute
+    }
+    '/docs/agent': {
+      id: '/docs/agent'
+      path: '/agent'
+      fullPath: '/docs/agent'
+      preLoaderRoute: typeof DocsAgentRouteImport
+      parentRoute: typeof DocsRoute
+    }
+    '/docs/architecture': {
+      id: '/docs/architecture'
+      path: '/architecture'
+      fullPath: '/docs/architecture'
+      preLoaderRoute: typeof DocsArchitectureRouteImport
+      parentRoute: typeof DocsRoute
+    }
+    '/docs/execution': {
+      id: '/docs/execution'
+      path: '/execution'
+      fullPath: '/docs/execution'
+      preLoaderRoute: typeof DocsExecutionRouteImport
+      parentRoute: typeof DocsRoute
+    }
+    '/docs/risk': {
+      id: '/docs/risk'
+      path: '/risk'
+      fullPath: '/docs/risk'
+      preLoaderRoute: typeof DocsRiskRouteImport
+      parentRoute: typeof DocsRoute
+    }
+    '/docs/tokenized-markets': {
+      id: '/docs/tokenized-markets'
+      path: '/tokenized-markets'
+      fullPath: '/docs/tokenized-markets'
+      preLoaderRoute: typeof DocsTokenizedMarketsRouteImport
+      parentRoute: typeof DocsRoute
+    }
+    '/markets/$asset': {
+      id: '/markets/$asset'
+      path: '/$asset'
+      fullPath: '/markets/$asset'
+      preLoaderRoute: typeof MarketsAssetRouteImport
+      parentRoute: typeof MarketsRoute
+    }
+    '/api/public/agent': {
+      id: '/api/public/agent'
+      path: '/api/public/agent'
+      fullPath: '/api/public/agent'
+      preLoaderRoute: typeof ApiPublicAgentRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
+interface AgentRouteChildren {
+  AgentThreadIdRoute: typeof AgentThreadIdRoute
+  AgentPerformanceRoute: typeof AgentPerformanceRoute
+  AgentSettingsRoute: typeof AgentSettingsRoute
+  AgentIndexRoute: typeof AgentIndexRoute
+}
+
+const AgentRouteChildren: AgentRouteChildren = {
+  AgentThreadIdRoute: AgentThreadIdRoute,
+  AgentPerformanceRoute: AgentPerformanceRoute,
+  AgentSettingsRoute: AgentSettingsRoute,
+  AgentIndexRoute: AgentIndexRoute,
+}
+
+const AgentRouteWithChildren = AgentRoute._addFileChildren(AgentRouteChildren)
+
+interface DocsRouteChildren {
+  DocsAgentRoute: typeof DocsAgentRoute
+  DocsArchitectureRoute: typeof DocsArchitectureRoute
+  DocsExecutionRoute: typeof DocsExecutionRoute
+  DocsRiskRoute: typeof DocsRiskRoute
+  DocsTokenizedMarketsRoute: typeof DocsTokenizedMarketsRoute
+  DocsIndexRoute: typeof DocsIndexRoute
+}
+
+const DocsRouteChildren: DocsRouteChildren = {
+  DocsAgentRoute: DocsAgentRoute,
+  DocsArchitectureRoute: DocsArchitectureRoute,
+  DocsExecutionRoute: DocsExecutionRoute,
+  DocsRiskRoute: DocsRiskRoute,
+  DocsTokenizedMarketsRoute: DocsTokenizedMarketsRoute,
+  DocsIndexRoute: DocsIndexRoute,
+}
+
+const DocsRouteWithChildren = DocsRoute._addFileChildren(DocsRouteChildren)
+
+interface MarketsRouteChildren {
+  MarketsAssetRoute: typeof MarketsAssetRoute
+}
+
+const MarketsRouteChildren: MarketsRouteChildren = {
+  MarketsAssetRoute: MarketsAssetRoute,
+}
+
+const MarketsRouteWithChildren =
+  MarketsRoute._addFileChildren(MarketsRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  ActivityRoute: ActivityRoute,
+  AgentRoute: AgentRouteWithChildren,
+  AuthRoute: AuthRoute,
+  CompareRoute: CompareRoute,
+  DocsRoute: DocsRouteWithChildren,
+  FaqRoute: FaqRoute,
+  IntelligenceRoute: IntelligenceRoute,
+  MarketsRoute: MarketsRouteWithChildren,
+  PortfolioRoute: PortfolioRoute,
+  ReportsRoute: ReportsRoute,
+  ResetPasswordRoute: ResetPasswordRoute,
+  RoadmapRoute: RoadmapRoute,
+  ScannerRoute: ScannerRoute,
+  TerminalRoute: TerminalRoute,
+  TokenRoute: TokenRoute,
+  WatchlistRoute: WatchlistRoute,
+  ApiPublicAgentRoute: ApiPublicAgentRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
