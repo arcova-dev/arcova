@@ -12,16 +12,21 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as ActivityRouteImport } from './routes/activity'
+import { Route as AgentRouteImport } from './routes/agent'
+import { Route as AuthRouteImport } from './routes/auth'
 import { Route as CompareRouteImport } from './routes/compare'
 import { Route as FaqRouteImport } from './routes/faq'
 import { Route as IntelligenceRouteImport } from './routes/intelligence'
 import { Route as MarketsRouteImport } from './routes/markets'
 import { Route as PortfolioRouteImport } from './routes/portfolio'
 import { Route as ReportsRouteImport } from './routes/reports'
+import { Route as ResetPasswordRouteImport } from './routes/reset-password'
 import { Route as RoadmapRouteImport } from './routes/roadmap'
 import { Route as ScannerRouteImport } from './routes/scanner'
 import { Route as TokenRouteImport } from './routes/token'
 import { Route as WatchlistRouteImport } from './routes/watchlist'
+import { Route as AgentThreadIdRouteImport } from './routes/agent.$threadId'
+import { Route as ApiPublicAgentRouteImport } from './routes/api/public/agent'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -36,6 +41,16 @@ const AboutRoute = AboutRouteImport.update({
 const ActivityRoute = ActivityRouteImport.update({
   id: '/activity',
   path: '/activity',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AgentRoute = AgentRouteImport.update({
+  id: '/agent',
+  path: '/agent',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthRoute = AuthRouteImport.update({
+  id: '/auth',
+  path: '/auth',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CompareRoute = CompareRouteImport.update({
@@ -68,6 +83,11 @@ const ReportsRoute = ReportsRouteImport.update({
   path: '/reports',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ResetPasswordRoute = ResetPasswordRouteImport.update({
+  id: '/reset-password',
+  path: '/reset-password',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const RoadmapRoute = RoadmapRouteImport.update({
   id: '/roadmap',
   path: '/roadmap',
@@ -88,52 +108,77 @@ const WatchlistRoute = WatchlistRouteImport.update({
   path: '/watchlist',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AgentThreadIdRoute = AgentThreadIdRouteImport.update({
+  id: '/$threadId',
+  path: '/$threadId',
+  getParentRoute: () => AgentRoute,
+} as any)
+const ApiPublicAgentRoute = ApiPublicAgentRouteImport.update({
+  id: '/api/public/agent',
+  path: '/api/public/agent',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/activity': typeof ActivityRoute
+  '/agent': typeof AgentRouteWithChildren
+  '/auth': typeof AuthRoute
   '/compare': typeof CompareRoute
   '/faq': typeof FaqRoute
   '/intelligence': typeof IntelligenceRoute
   '/markets': typeof MarketsRoute
   '/portfolio': typeof PortfolioRoute
   '/reports': typeof ReportsRoute
+  '/reset-password': typeof ResetPasswordRoute
   '/roadmap': typeof RoadmapRoute
   '/scanner': typeof ScannerRoute
   '/token': typeof TokenRoute
   '/watchlist': typeof WatchlistRoute
+  '/agent/$threadId': typeof AgentThreadIdRoute
+  '/api/public/agent': typeof ApiPublicAgentRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/activity': typeof ActivityRoute
+  '/agent': typeof AgentRouteWithChildren
+  '/auth': typeof AuthRoute
   '/compare': typeof CompareRoute
   '/faq': typeof FaqRoute
   '/intelligence': typeof IntelligenceRoute
   '/markets': typeof MarketsRoute
   '/portfolio': typeof PortfolioRoute
   '/reports': typeof ReportsRoute
+  '/reset-password': typeof ResetPasswordRoute
   '/roadmap': typeof RoadmapRoute
   '/scanner': typeof ScannerRoute
   '/token': typeof TokenRoute
   '/watchlist': typeof WatchlistRoute
+  '/agent/$threadId': typeof AgentThreadIdRoute
+  '/api/public/agent': typeof ApiPublicAgentRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/activity': typeof ActivityRoute
+  '/agent': typeof AgentRouteWithChildren
+  '/auth': typeof AuthRoute
   '/compare': typeof CompareRoute
   '/faq': typeof FaqRoute
   '/intelligence': typeof IntelligenceRoute
   '/markets': typeof MarketsRoute
   '/portfolio': typeof PortfolioRoute
   '/reports': typeof ReportsRoute
+  '/reset-password': typeof ResetPasswordRoute
   '/roadmap': typeof RoadmapRoute
   '/scanner': typeof ScannerRoute
   '/token': typeof TokenRoute
   '/watchlist': typeof WatchlistRoute
+  '/agent/$threadId': typeof AgentThreadIdRoute
+  '/api/public/agent': typeof ApiPublicAgentRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -141,62 +186,81 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/activity'
+    | '/agent'
+    | '/auth'
     | '/compare'
     | '/faq'
     | '/intelligence'
     | '/markets'
     | '/portfolio'
     | '/reports'
+    | '/reset-password'
     | '/roadmap'
     | '/scanner'
     | '/token'
     | '/watchlist'
+    | '/agent/$threadId'
+    | '/api/public/agent'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/about'
     | '/activity'
+    | '/agent'
+    | '/auth'
     | '/compare'
     | '/faq'
     | '/intelligence'
     | '/markets'
     | '/portfolio'
     | '/reports'
+    | '/reset-password'
     | '/roadmap'
     | '/scanner'
     | '/token'
     | '/watchlist'
+    | '/agent/$threadId'
+    | '/api/public/agent'
   id:
     | '__root__'
     | '/'
     | '/about'
     | '/activity'
+    | '/agent'
+    | '/auth'
     | '/compare'
     | '/faq'
     | '/intelligence'
     | '/markets'
     | '/portfolio'
     | '/reports'
+    | '/reset-password'
     | '/roadmap'
     | '/scanner'
     | '/token'
     | '/watchlist'
+    | '/agent/$threadId'
+    | '/api/public/agent'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   ActivityRoute: typeof ActivityRoute
+  AgentRoute: typeof AgentRouteWithChildren
+  AuthRoute: typeof AuthRoute
   CompareRoute: typeof CompareRoute
   FaqRoute: typeof FaqRoute
   IntelligenceRoute: typeof IntelligenceRoute
   MarketsRoute: typeof MarketsRoute
   PortfolioRoute: typeof PortfolioRoute
   ReportsRoute: typeof ReportsRoute
+  ResetPasswordRoute: typeof ResetPasswordRoute
   RoadmapRoute: typeof RoadmapRoute
   ScannerRoute: typeof ScannerRoute
   TokenRoute: typeof TokenRoute
   WatchlistRoute: typeof WatchlistRoute
+  ApiPublicAgentRoute: typeof ApiPublicAgentRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -220,6 +284,20 @@ declare module '@tanstack/react-router' {
       path: '/activity'
       fullPath: '/activity'
       preLoaderRoute: typeof ActivityRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/agent': {
+      id: '/agent'
+      path: '/agent'
+      fullPath: '/agent'
+      preLoaderRoute: typeof AgentRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/auth': {
+      id: '/auth'
+      path: '/auth'
+      fullPath: '/auth'
+      preLoaderRoute: typeof AuthRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/compare': {
@@ -264,6 +342,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ReportsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/reset-password': {
+      id: '/reset-password'
+      path: '/reset-password'
+      fullPath: '/reset-password'
+      preLoaderRoute: typeof ResetPasswordRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/roadmap': {
       id: '/roadmap'
       path: '/roadmap'
@@ -292,23 +377,51 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof WatchlistRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/agent/$threadId': {
+      id: '/agent/$threadId'
+      path: '/$threadId'
+      fullPath: '/agent/$threadId'
+      preLoaderRoute: typeof AgentThreadIdRouteImport
+      parentRoute: typeof AgentRoute
+    }
+    '/api/public/agent': {
+      id: '/api/public/agent'
+      path: '/api/public/agent'
+      fullPath: '/api/public/agent'
+      preLoaderRoute: typeof ApiPublicAgentRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
+
+interface AgentRouteChildren {
+  AgentThreadIdRoute: typeof AgentThreadIdRoute
+}
+
+const AgentRouteChildren: AgentRouteChildren = {
+  AgentThreadIdRoute: AgentThreadIdRoute,
+}
+
+const AgentRouteWithChildren = AgentRoute._addFileChildren(AgentRouteChildren)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   ActivityRoute: ActivityRoute,
+  AgentRoute: AgentRouteWithChildren,
+  AuthRoute: AuthRoute,
   CompareRoute: CompareRoute,
   FaqRoute: FaqRoute,
   IntelligenceRoute: IntelligenceRoute,
   MarketsRoute: MarketsRoute,
   PortfolioRoute: PortfolioRoute,
   ReportsRoute: ReportsRoute,
+  ResetPasswordRoute: ResetPasswordRoute,
   RoadmapRoute: RoadmapRoute,
   ScannerRoute: ScannerRoute,
   TokenRoute: TokenRoute,
   WatchlistRoute: WatchlistRoute,
+  ApiPublicAgentRoute: ApiPublicAgentRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
