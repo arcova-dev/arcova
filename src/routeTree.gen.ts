@@ -38,7 +38,10 @@ import { Route as DocsExecutionRouteImport } from './routes/docs.execution'
 import { Route as DocsRiskRouteImport } from './routes/docs.risk'
 import { Route as DocsTokenizedMarketsRouteImport } from './routes/docs.tokenized-markets'
 import { Route as MarketsAssetRouteImport } from './routes/markets.$asset'
+import { Route as RobotsTxtRouteImport } from './routes/robots.txt'
+import { Route as SitemapXmlRouteImport } from './routes/sitemap.xml'
 import { Route as ApiPublicAgentRouteImport } from './routes/api/public/agent'
+import { Route as ApiPublicNetworkStatusRouteImport } from './routes/api/public/network-status'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -185,9 +188,24 @@ const MarketsAssetRoute = MarketsAssetRouteImport.update({
   path: '/$asset',
   getParentRoute: () => MarketsRoute,
 } as any)
+const RobotsTxtRoute = RobotsTxtRouteImport.update({
+  id: '/robots/txt',
+  path: '/robots/txt',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapXmlRoute = SitemapXmlRouteImport.update({
+  id: '/sitemap/xml',
+  path: '/sitemap/xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiPublicAgentRoute = ApiPublicAgentRouteImport.update({
   id: '/api/public/agent',
   path: '/api/public/agent',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiPublicNetworkStatusRoute = ApiPublicNetworkStatusRouteImport.update({
+  id: '/api/public/network-status',
+  path: '/api/public/network-status',
   getParentRoute: () => rootRouteImport,
 } as any)
 
@@ -219,9 +237,12 @@ export interface FileRoutesByFullPath {
   '/docs/risk': typeof DocsRiskRoute
   '/docs/tokenized-markets': typeof DocsTokenizedMarketsRoute
   '/markets/$asset': typeof MarketsAssetRoute
+  '/robots/txt': typeof RobotsTxtRoute
+  '/sitemap/xml': typeof SitemapXmlRoute
   '/agent/': typeof AgentIndexRoute
   '/docs/': typeof DocsIndexRoute
   '/api/public/agent': typeof ApiPublicAgentRoute
+  '/api/public/network-status': typeof ApiPublicNetworkStatusRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -249,9 +270,12 @@ export interface FileRoutesByTo {
   '/docs/risk': typeof DocsRiskRoute
   '/docs/tokenized-markets': typeof DocsTokenizedMarketsRoute
   '/markets/$asset': typeof MarketsAssetRoute
+  '/robots/txt': typeof RobotsTxtRoute
+  '/sitemap/xml': typeof SitemapXmlRoute
   '/agent': typeof AgentIndexRoute
   '/docs': typeof DocsIndexRoute
   '/api/public/agent': typeof ApiPublicAgentRoute
+  '/api/public/network-status': typeof ApiPublicNetworkStatusRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -282,9 +306,12 @@ export interface FileRoutesById {
   '/docs/risk': typeof DocsRiskRoute
   '/docs/tokenized-markets': typeof DocsTokenizedMarketsRoute
   '/markets/$asset': typeof MarketsAssetRoute
+  '/robots/txt': typeof RobotsTxtRoute
+  '/sitemap/xml': typeof SitemapXmlRoute
   '/agent/': typeof AgentIndexRoute
   '/docs/': typeof DocsIndexRoute
   '/api/public/agent': typeof ApiPublicAgentRoute
+  '/api/public/network-status': typeof ApiPublicNetworkStatusRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -316,9 +343,12 @@ export interface FileRouteTypes {
     | '/docs/risk'
     | '/docs/tokenized-markets'
     | '/markets/$asset'
+    | '/robots/txt'
+    | '/sitemap/xml'
     | '/agent/'
     | '/docs/'
     | '/api/public/agent'
+    | '/api/public/network-status'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -346,9 +376,12 @@ export interface FileRouteTypes {
     | '/docs/risk'
     | '/docs/tokenized-markets'
     | '/markets/$asset'
+    | '/robots/txt'
+    | '/sitemap/xml'
     | '/agent'
     | '/docs'
     | '/api/public/agent'
+    | '/api/public/network-status'
   id:
     | '__root__'
     | '/'
@@ -378,9 +411,12 @@ export interface FileRouteTypes {
     | '/docs/risk'
     | '/docs/tokenized-markets'
     | '/markets/$asset'
+    | '/robots/txt'
+    | '/sitemap/xml'
     | '/agent/'
     | '/docs/'
     | '/api/public/agent'
+    | '/api/public/network-status'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -402,7 +438,10 @@ export interface RootRouteChildren {
   TerminalRoute: typeof TerminalRoute
   TokenRoute: typeof TokenRoute
   WatchlistRoute: typeof WatchlistRoute
+  RobotsTxtRoute: typeof RobotsTxtRoute
+  SitemapXmlRoute: typeof SitemapXmlRoute
   ApiPublicAgentRoute: typeof ApiPublicAgentRoute
+  ApiPublicNetworkStatusRoute: typeof ApiPublicNetworkStatusRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -610,11 +649,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MarketsAssetRouteImport
       parentRoute: typeof MarketsRoute
     }
+    '/robots/txt': {
+      id: '/robots/txt'
+      path: '/robots/txt'
+      fullPath: '/robots/txt'
+      preLoaderRoute: typeof RobotsTxtRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap/xml': {
+      id: '/sitemap/xml'
+      path: '/sitemap/xml'
+      fullPath: '/sitemap/xml'
+      preLoaderRoute: typeof SitemapXmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/public/agent': {
       id: '/api/public/agent'
       path: '/api/public/agent'
       fullPath: '/api/public/agent'
       preLoaderRoute: typeof ApiPublicAgentRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/public/network-status': {
+      id: '/api/public/network-status'
+      path: '/api/public/network-status'
+      fullPath: '/api/public/network-status'
+      preLoaderRoute: typeof ApiPublicNetworkStatusRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -686,7 +746,10 @@ const rootRouteChildren: RootRouteChildren = {
   TerminalRoute: TerminalRoute,
   TokenRoute: TokenRoute,
   WatchlistRoute: WatchlistRoute,
+  RobotsTxtRoute: RobotsTxtRoute,
+  SitemapXmlRoute: SitemapXmlRoute,
   ApiPublicAgentRoute: ApiPublicAgentRoute,
+  ApiPublicNetworkStatusRoute: ApiPublicNetworkStatusRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
