@@ -49,5 +49,5 @@ export const Route = createFileRoute("/api/public/agent")({
 
 function extractText(parts: Json): string {
   if (!Array.isArray(parts)) return "";
-  return parts.map(part => typeof part === "object" && part && "text" in part ? String(part.text) : "").join("");
+  return parts.map(part => typeof part === "object" && part && "text" in part ? String(part['text']) : "").join("");
 }
