@@ -1,7 +1,7 @@
 import {
   Activity, BarChart3, BookOpen, Bot, BrainCircuit, ChartCandlestick, FileText,
   Gauge, Globe2, Layers3, Radar, Scale, ScanSearch, Settings2, ShieldCheck,
-  Target, Telescope, WalletCards,
+  Target, Telescope, WalletCards, Zap,
 } from "lucide-react";
 
 export const ARGUS_URL = import.meta.env.VITE_ARGUS_URL || "https://argus.world";
@@ -27,11 +27,10 @@ export const processSteps = [
   ["Analyze", "Evaluate price structure, liquidity, fundamentals, sentiment and risk.", BrainCircuit],
   ["Model", "Generate scenario-based forecasts with assumptions and confidence.", Layers3],
   ["Decide", "Produce an explainable agent decision based on configured strategy.", Target],
-  ["Execute", "Execute only transactions permitted by user policy.", ZapIcon],
+  ["Execute", "Execute only transactions permitted by user policy.", Zap],
   ["Monitor", "Continuously monitor positions and market conditions.", Radar],
   ["Report", "Generate transparent performance and decision reports.", FileText],
 ] as const;
-function ZapIcon(props: React.ComponentProps<typeof Activity>) { return <Activity {...props} />; }
 
 export const featurePages = {
   markets: { eyebrow: "TOKENIZED MARKET EXPLORER", title: "Markets", description: "Verified tokenized assets, liquidity, pricing and agent model views from connected providers.", icon: ChartCandlestick, empty: "NO VERIFIED TOKENIZED ASSETS FOUND", detail: "Connect a market data and asset-registry provider to begin discovery.", action: "RETRY DATA" },

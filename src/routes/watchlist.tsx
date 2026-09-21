@@ -1,0 +1,1 @@
+import {createFileRoute} from "@tanstack/react-router"; import {FeaturePage} from "@/components/feature-page"; import {meta} from "@/components/page-kit"; export const Route=createFileRoute("/watchlist")({head:()=>meta("Watchlist","ARCOVA watchlist with source-aware data states and transparent analysis."),component:()=> <FeaturePage kind="watchlist"/>});

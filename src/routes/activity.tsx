@@ -1,0 +1,1 @@
+import {createFileRoute} from "@tanstack/react-router"; import {FeaturePage} from "@/components/feature-page"; import {meta} from "@/components/page-kit"; export const Route=createFileRoute("/activity")({head:()=>meta("Agent Activity","ARCOVA agent activity with source-aware data states and transparent analysis."),component:()=> <FeaturePage kind="activity"/>});

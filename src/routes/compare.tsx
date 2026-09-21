@@ -1,0 +1,1 @@
+import {createFileRoute} from "@tanstack/react-router"; import {FeaturePage} from "@/components/feature-page"; import {meta} from "@/components/page-kit"; export const Route=createFileRoute("/compare")({head:()=>meta("Asset Comparison","ARCOVA asset comparison with source-aware data states and transparent analysis."),component:()=> <FeaturePage kind="compare"/>});
