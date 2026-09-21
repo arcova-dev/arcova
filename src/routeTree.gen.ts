@@ -29,6 +29,8 @@ import { Route as TokenRouteImport } from './routes/token'
 import { Route as WatchlistRouteImport } from './routes/watchlist'
 import { Route as AgentIndexRouteImport } from './routes/agent.index'
 import { Route as AgentThreadIdRouteImport } from './routes/agent.$threadId'
+import { Route as AgentPerformanceRouteImport } from './routes/agent.performance'
+import { Route as AgentSettingsRouteImport } from './routes/agent.settings'
 import { Route as DocsIndexRouteImport } from './routes/docs.index'
 import { Route as DocsAgentRouteImport } from './routes/docs.agent'
 import { Route as DocsArchitectureRouteImport } from './routes/docs.architecture'
@@ -138,6 +140,16 @@ const AgentThreadIdRoute = AgentThreadIdRouteImport.update({
   path: '/$threadId',
   getParentRoute: () => AgentRoute,
 } as any)
+const AgentPerformanceRoute = AgentPerformanceRouteImport.update({
+  id: '/performance',
+  path: '/performance',
+  getParentRoute: () => AgentRoute,
+} as any)
+const AgentSettingsRoute = AgentSettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => AgentRoute,
+} as any)
 const DocsIndexRoute = DocsIndexRouteImport.update({
   id: '/',
   path: '/',
@@ -199,6 +211,8 @@ export interface FileRoutesByFullPath {
   '/token': typeof TokenRoute
   '/watchlist': typeof WatchlistRoute
   '/agent/$threadId': typeof AgentThreadIdRoute
+  '/agent/performance': typeof AgentPerformanceRoute
+  '/agent/settings': typeof AgentSettingsRoute
   '/docs/agent': typeof DocsAgentRoute
   '/docs/architecture': typeof DocsArchitectureRoute
   '/docs/execution': typeof DocsExecutionRoute
@@ -227,6 +241,8 @@ export interface FileRoutesByTo {
   '/token': typeof TokenRoute
   '/watchlist': typeof WatchlistRoute
   '/agent/$threadId': typeof AgentThreadIdRoute
+  '/agent/performance': typeof AgentPerformanceRoute
+  '/agent/settings': typeof AgentSettingsRoute
   '/docs/agent': typeof DocsAgentRoute
   '/docs/architecture': typeof DocsArchitectureRoute
   '/docs/execution': typeof DocsExecutionRoute
@@ -258,6 +274,8 @@ export interface FileRoutesById {
   '/token': typeof TokenRoute
   '/watchlist': typeof WatchlistRoute
   '/agent/$threadId': typeof AgentThreadIdRoute
+  '/agent/performance': typeof AgentPerformanceRoute
+  '/agent/settings': typeof AgentSettingsRoute
   '/docs/agent': typeof DocsAgentRoute
   '/docs/architecture': typeof DocsArchitectureRoute
   '/docs/execution': typeof DocsExecutionRoute
@@ -290,6 +308,8 @@ export interface FileRouteTypes {
     | '/token'
     | '/watchlist'
     | '/agent/$threadId'
+    | '/agent/performance'
+    | '/agent/settings'
     | '/docs/agent'
     | '/docs/architecture'
     | '/docs/execution'
@@ -318,6 +338,8 @@ export interface FileRouteTypes {
     | '/token'
     | '/watchlist'
     | '/agent/$threadId'
+    | '/agent/performance'
+    | '/agent/settings'
     | '/docs/agent'
     | '/docs/architecture'
     | '/docs/execution'
@@ -348,6 +370,8 @@ export interface FileRouteTypes {
     | '/token'
     | '/watchlist'
     | '/agent/$threadId'
+    | '/agent/performance'
+    | '/agent/settings'
     | '/docs/agent'
     | '/docs/architecture'
     | '/docs/execution'
@@ -523,6 +547,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AgentThreadIdRouteImport
       parentRoute: typeof AgentRoute
     }
+    '/agent/performance': {
+      id: '/agent/performance'
+      path: '/performance'
+      fullPath: '/agent/performance'
+      preLoaderRoute: typeof AgentPerformanceRouteImport
+      parentRoute: typeof AgentRoute
+    }
+    '/agent/settings': {
+      id: '/agent/settings'
+      path: '/settings'
+      fullPath: '/agent/settings'
+      preLoaderRoute: typeof AgentSettingsRouteImport
+      parentRoute: typeof AgentRoute
+    }
     '/docs/': {
       id: '/docs/'
       path: '/'
@@ -584,11 +622,15 @@ declare module '@tanstack/react-router' {
 
 interface AgentRouteChildren {
   AgentThreadIdRoute: typeof AgentThreadIdRoute
+  AgentPerformanceRoute: typeof AgentPerformanceRoute
+  AgentSettingsRoute: typeof AgentSettingsRoute
   AgentIndexRoute: typeof AgentIndexRoute
 }
 
 const AgentRouteChildren: AgentRouteChildren = {
   AgentThreadIdRoute: AgentThreadIdRoute,
+  AgentPerformanceRoute: AgentPerformanceRoute,
+  AgentSettingsRoute: AgentSettingsRoute,
   AgentIndexRoute: AgentIndexRoute,
 }
 
